@@ -1,4 +1,4 @@
-use std::{collections::HashMap, io::stdin};
+use std::io::stdin;
 
 use phf::phf_map;
 

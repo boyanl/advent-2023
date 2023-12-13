@@ -1,6 +1,6 @@
 use memoize::memoize;
 use scanf::sscanf;
-use std::io::stdin;
+use std::{io::stdin, vec};
 
 #[memoize]
 fn valid_combinations(line: String, groups: Vec<i32>, in_group: bool) -> i64 {
@@ -43,12 +43,52 @@ fn valid_combinations(line: String, groups: Vec<i32>, in_group: bool) -> i64 {
         }
         _ => todo!(),
     }
-
-    return 0;
 }
 
 fn possibilities(line: &str, groups: &Vec<i32>) -> i64 {
     return valid_combinations(line.to_string(), groups.clone(), false);
+}
+
+fn possibilities_dp(line: &str, groups: &Vec<i32>) -> i64 {
+    // Surround the input and the desired pattern with "."
+    // to account for leading/trailing "."-s (those don't change the groups)
+    let desired = ".".to_string()
+        + &groups
+            .iter()
+            .map(|n| "#".repeat(*n as usize))
+            .collect::<Vec<_>>()
+            .join(".")
+        + ".";
+
+    let line = ".".to_string() + line + ".";
+
+    let n = line.len();
+    let m = desired.len();
+
+    // how many ways we can match line[..i] to desired[..j]
+    let mut matches = vec![vec![0; m + 1]; n + 1];
+    // If both are empty, they match
+    matches[0][0] = 1;
+
+    let (chars1, chars2) = (line.as_bytes(), desired.as_bytes());
+
+    for i in 1..=n {
+        for j in 1..=m {
+            let (have, want) = (chars1[i - 1] as char, chars2[j - 1] as char);
+            let matching = have == want || have == '?';
+
+            if matching && want == '#' {
+                matches[i][j] = matches[i - 1][j - 1];
+            }
+            if matching && want == '.' {
+                // The '.' in `want` can match one or more '.'-s in `have`, so we can either "consume" it
+                // or not
+                matches[i][j] += matches[i - 1][j - 1] + matches[i - 1][j];
+            }
+        }
+    }
+
+    matches[n][m]
 }
 
 fn part_one() {
@@ -61,8 +101,7 @@ fn part_one() {
                 .map(|part| part.parse::<i32>().unwrap())
                 .collect::<Vec<_>>();
 
-            let p = possibilities(&records, &groups);
-            result += p;
+            result += possibilities_dp(&records, &groups);
         }
     }
 
@@ -83,7 +122,7 @@ fn part_two() {
                 .map(|part| part.parse::<i32>().unwrap())
                 .collect::<Vec<_>>();
 
-            result += possibilities(&records_new, &groups);
+            result += possibilities_dp(&records_new, &groups);
         }
     }
 

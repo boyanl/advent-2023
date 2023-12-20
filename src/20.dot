@@ -1,0 +1,170 @@
+digraph {
+        fm [shape=circle]
+        fm -> dj
+        fm -> gk
+        cc [shape=circle]
+        cc -> cr
+        vv [shape=circle]
+        vv -> br
+        rx [shape=box]
+        qx [shape=circle]
+        qx -> tf
+        qx -> gq
+        xr [shape=diamond]
+        xr -> sn
+        xr -> sb
+        xr -> hd
+        kj [shape=circle]
+        kj -> gx
+        kj -> hs
+        xt [shape=circle]
+        xt -> cc
+        xt -> tf
+        gd [shape=circle]
+        gd -> gx
+        ph [shape=circle]
+        ph -> gk
+        vq [shape=diamond]
+        vq -> hp
+        dk [shape=circle]
+        dk -> tb
+        dk -> tf
+        hp [shape=diamond]
+        hp -> rx
+        gr [shape=circle]
+        gr -> zn
+        gr -> xr
+        cr [shape=circle]
+        cr -> kk
+        cr -> tf
+        broadcaster [shape=box]
+        broadcaster -> hd
+        broadcaster -> xt
+        broadcaster -> kj
+        broadcaster -> zt
+        zt [shape=circle]
+        zt -> gk
+        zt -> xg
+        gk [shape=diamond]
+        gk -> vq
+        gk -> vv
+        gk -> br
+        gk -> zt
+        gk -> dj
+        gk -> xg
+        nt [shape=circle]
+        nt -> ph
+        nt -> gk
+        rg [shape=circle]
+        rg -> xr
+        rg -> dl
+        hd [shape=circle]
+        hd -> tp
+        hd -> xr
+        kb [shape=circle]
+        kb -> nt
+        kb -> gk
+        sh [shape=circle]
+        sh -> lr
+        tk [shape=circle]
+        tk -> tt
+        kk [shape=circle]
+        kk -> fc
+        sr [shape=diamond]
+        sr -> hp
+        tf [shape=diamond]
+        tf -> cc
+        tf -> rf
+        tf -> kk
+        tf -> xt
+        tf -> gq
+        nf [shape=circle]
+        nf -> gx
+        nf -> gd
+        bz [shape=circle]
+        bz -> xr
+        bz -> rg
+        pd [shape=circle]
+        pd -> gk
+        pd -> kb
+        tb [shape=circle]
+        tb -> kr
+        tb -> tf
+        rf [shape=diamond]
+        rf -> hp
+        rd [shape=circle]
+        rd -> gk
+        rd -> cz
+        fh [shape=circle]
+        fh -> xr
+        fh -> xs
+        jm [shape=circle]
+        jm -> pj
+        jm -> tf
+        jh [shape=circle]
+        jh -> xr
+        jh -> bz
+        pj [shape=circle]
+        pj -> tf
+        pj -> dk
+        mz [shape=circle]
+        mz -> rv
+        tp [shape=circle]
+        tp -> xr
+        tp -> rq
+        kr [shape=circle]
+        kr -> tf
+        zn [shape=circle]
+        zn -> fh
+        zn -> xr
+        tt [shape=circle]
+        tt -> gf
+        rv [shape=circle]
+        rv -> gx
+        rv -> ck
+        gx [shape=diamond]
+        gx -> mz
+        gx -> sh
+        gx -> tt
+        gx -> sr
+        gx -> kj
+        gx -> tk
+        br [shape=circle]
+        br -> fm
+        dl [shape=circle]
+        dl -> xr
+        hs [shape=circle]
+        hs -> gx
+        hs -> tk
+        gf [shape=circle]
+        gf -> gx
+        gf -> sh
+        gq [shape=circle]
+        gq -> jm
+        rq [shape=circle]
+        rq -> gr
+        rq -> xr
+        dj [shape=circle]
+        dj -> pd
+        xg [shape=circle]
+        xg -> rd
+        ck [shape=circle]
+        ck -> gx
+        ck -> nf
+        sn [shape=diamond]
+        sn -> hp
+        sb [shape=circle]
+        sb -> jh
+        xs [shape=circle]
+        xs -> sb
+        xs -> xr
+        cz [shape=circle]
+        cz -> gk
+        cz -> vv
+        lr [shape=circle]
+        lr -> mz
+        lr -> gx
+        fc [shape=circle]
+        fc -> qx
+        fc -> tf
+}

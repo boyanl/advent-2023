@@ -2,7 +2,6 @@ use std::{
     cmp,
     collections::{HashMap, VecDeque},
     io::stdin,
-    thread::LocalKey,
     vec,
 };
 
@@ -283,10 +282,44 @@ fn simulate_2(start: &Input) -> i64 {
     -1
 }
 
+fn generate_dot_file(input: &Input) -> String {
+    let (names, modules, _, outgoing) = input;
+    let mut result = String::new();
+
+    let mut name_rev_mapping = HashMap::new();
+    for (name, idx) in names {
+        name_rev_mapping.insert(*idx, name.clone());
+    }
+
+    result.push_str("digraph {\n");
+
+    for (name, &i) in names {
+        let m = &modules[i];
+
+        let shape = match m {
+            Module::FlipFlop(_) => "[shape=circle]",
+            Module::Conjunction(_) => "[shape=diamond]",
+            Module::Standard => "[shape=box]",
+        };
+        result.push_str(format!("\t{} {}\n", name, shape).as_str());
+
+        for next in &outgoing[i] {
+            result.push_str(format!("\t{} -> {}\n", name, name_rev_mapping[next]).as_str());
+        }
+    }
+
+    result.push_str("}\n");
+
+    result
+}
+
 fn part_two() {
-    let modules = read_input();
-    let result = simulate_2(&modules);
+    let input = read_input();
+    let result = simulate_2(&input);
     println!("{result}");
+    //
+    // let dot_contents = generate_dot_file(&modules);
+    // println!("{dot_contents}");
 }
 
 fn main() {

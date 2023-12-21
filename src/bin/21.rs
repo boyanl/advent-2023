@@ -166,6 +166,12 @@ fn reachable_count_2_smart(start: Pos2, max_dist: i32, map: &Vec<Vec<char>>) -> 
             }
         }
 
+        // We know that the total count is a function of n^2, e.g. f(x) = a*x^2 + b*x + c
+        // In discrete terms, increase ~= f'(x), increase_diff ~= f''(x), so since increase_diff_2 = f'''(x), it must become 0 from some point on
+        // There is some noise at the start, but from a certain point on this seems to be true (even in the discrete case)
+        // Note - since the pattern allows traveling freely straight up/down/left/right from the center
+        // and since max_dist = len/2 + k*len,
+        // so we only keep track of the answer at such distances
         if d % len == half_len {
             let increase = count - last_count;
             let increase_diff = increase - last_increase;

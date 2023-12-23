@@ -100,6 +100,9 @@ fn part_one() {
         x: (maze[0].len() - 2) as i32,
         y: (maze.len() - 1) as i32,
     };
+    assert!(maze[start.y as usize][start.x as usize] == '.');
+    assert!(maze[end.y as usize][end.x as usize] == '.');
+
     let result = longest_path_len(&maze, start, end);
     println!("{result}");
 }
@@ -228,6 +231,9 @@ fn part_two() {
         x: (maze[0].len() - 2) as i32,
         y: (maze.len() - 1) as i32,
     };
+    assert!(maze[start.y as usize][start.x as usize] == '.');
+    assert!(maze[end.y as usize][end.x as usize] == '.');
+
     let result = longest_path_len_2(&maze, start, end);
     println!("{result}");
 }

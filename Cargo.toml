@@ -10,3 +10,4 @@ phf = { version = "0.11.2", features = ["macros"] }
 scanf = "1.2.1"
 memoize = "0.4.1"
 rug = "1.22.0"
+rand = "0.8"
